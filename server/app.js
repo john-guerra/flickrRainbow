@@ -32,6 +32,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 app.get('/flickr/:query', function (req, res) {
 	console.log("Flickr!");
+	console.log(req.params["query"].split("~"));
 	getApiKeys((api_key, api_secret) => {
 		const Flickr = require("flickrapi"),
 	    flickrOptions = {
@@ -48,7 +49,10 @@ app.get('/flickr/:query', function (req, res) {
 		  // we can now use "flickr" as our API object,
 		  // but we can only call public methods and access public data
 		  flickr.photos.search({
-		  	tags:[req.params["query"], "blue"]
+		  	safe:1,
+		  	sort:"relevance",
+		  	// tags:req.params["query"].split(",")[0],
+		  	text:req.params["query"].replace(",", " ")
 		  }, (err, data) => {
 		  	if (err) res.send(err);
 		  	res.send(data);
@@ -59,9 +63,6 @@ app.get('/flickr/:query', function (req, res) {
 		console.log(err);
 		res.send("Error!");
 	})
-
-
-
 });
 
 // Always return the main index.html, so react-router render the route in the client

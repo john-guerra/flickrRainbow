@@ -1,0 +1,13 @@
+/*.right {
+	float:right;
+}
+.instructions {
+	float:left;
+}*/
+.clear {
+	clear:both;
+}
+input {
+	display: block;
+	clear:both;
+}
