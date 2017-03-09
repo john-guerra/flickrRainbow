@@ -1,7 +1,7 @@
 {
   "name": "flickrrainbow",
   "version": "0.1.0",
-  "description": "A simple react app that queries flickr to create a photo rainbow"
+  "description": "A simple react app that queries flickr to create a photo rainbow",
   "private": true,
   "engines": {
     "node": "4.1.1"
@@ -19,7 +19,7 @@
     "react-scripts": "0.9.4"
   },
   "scripts": {
-    "start:client": "node server",
+    "start": "node server",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
