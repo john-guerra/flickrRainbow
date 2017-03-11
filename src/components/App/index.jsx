@@ -16,6 +16,8 @@ class App extends Component {
     this.colors.forEach((c) => {
       this.setState({[c]:[]});
     })
+
+
     // this.colors=["red", "yellow", "blue"];
   }
   getPhotos(query, callback) {
